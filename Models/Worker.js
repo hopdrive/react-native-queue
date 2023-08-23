@@ -89,9 +89,10 @@ export default class Worker {
    * Run job in worklet
    *
    */
-  startInWorklet(fn) {
+  runWorkJobInThread(jobName, jobId, jobPayload) {
     "worklet";
-    fn();
+    console.log('Calling home from another thread!')
+    Worker.workers[jobName](jobId, jobPayload);
   }
 
   /**
@@ -133,11 +134,12 @@ export default class Worker {
         }, jobTimeout);
       });
 
-      const worklet = Worklets.createRunInContextFn(this.startInWorklet);
+      const worklet = Worklets.createRunInContextFn(this.runWorkJobInThread);
 
       await Promise.race([
         timeoutPromise,
-        worklet(() => Worker.workers[jobName](jobId, jobPayload)),
+        worklet(jobName, jobId, jobPayload)
+        //Worker.workers[jobName](jobId, jobPayload)
       ]);
     } else {
       await Worker.workers[jobName](jobId, jobPayload);

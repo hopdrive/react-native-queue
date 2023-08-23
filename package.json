@@ -1,6 +1,6 @@
 {
   "name": "@hopdrive/react-native-queue",
-  "version": "2.2.1",
+  "version": "2.2.2",
   "description": "A React Native Job Queue (threaded)",
   "main": "index.js",
   "files": [
