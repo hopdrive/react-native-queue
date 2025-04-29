@@ -1,6 +1,6 @@
 {
   "name": "@hopdrive/react-native-queue",
-  "version": "2.4.1",
+  "version": "2.5.0-rc2",
   "description": "A React Native Job Queue",
   "main": "index.js",
   "publishConfig": {
@@ -18,7 +18,7 @@
   "scripts": {
     "test": "jest --coverage --detectOpenHandles --forceExit",
     "lint": "eslint .",
-    "lint:fix":  "eslint . --fix"
+    "lint:fix": "eslint . --fix"
   },
   "repository": {
     "type": "git",
